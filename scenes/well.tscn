@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://co1im6vp6up7v"]
+
+[ext_resource type="Script" uid="uid://craxikg8i4t5m" path="res://well.gd" id="1_rgtmi"]
+[ext_resource type="Texture2D" uid="uid://d2upgx3aa75o6" path="res://assets/Cute_Fantasy/Outdoor decoration/Well.png" id="2_dgxn0"]
+[ext_resource type="Script" uid="uid://shhv4fxo2k" path="res://scenes/well_collision.gd" id="3_dgxn0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgtmi"]
+radius = 16.0
+height = 38.0
+
+[node name="Well" type="Area2D"]
+script = ExtResource("1_rgtmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_dgxn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_rgtmi")
+script = ExtResource("3_dgxn0")
+
+[connection signal="area_entered" from="." to="CollisionShape2D" method="_on_well_area_entered"]
+[connection signal="body_entered" from="." to="CollisionShape2D" method="_on_well_body_entered"]
