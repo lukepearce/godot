@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://yw5f3wflaty8"]
+
+[ext_resource type="Texture2D" uid="uid://btewi7ipg3wnr" path="res://assets/Cute_Fantasy/Tiles/Cliff/Cave_Entrance.png" id="1_8ah7q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axy10"]
+atlas = ExtResource("1_8ah7q")
+region = Rect2(0, 0, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7n6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axy10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5mea"]
+size = Vector2(16, 11)
+
+[node name="CliffDoor" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m7n6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_q5mea")
